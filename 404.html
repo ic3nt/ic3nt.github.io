@@ -16,7 +16,7 @@
 
   gtag('config', 'G-5FGSCJPXE1');
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     /* Основные стили */
     
@@ -36,9 +36,14 @@
       padding: 0;
       box-sizing: border-box;
     }
+	
+    ::selection {
+      background: var(--color-accent);
+      color: white;
+    }
     
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       background-color: var(--color-bg);
       color: var(--color-text);
       display: flex;
@@ -306,7 +311,6 @@
   </div>
 
   <div id="stickers-container"></div>
-  <!-- Контейнер для стикеров -->
 
   <script>
     const tg = window.Telegram.WebApp;
