@@ -16,30 +16,19 @@
 
   gtag('config', 'G-5FGSCJPXE1');
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     /* Основные стили */
     
     :root {
-      --color-bg: #1a1a1a;
-      /* Очень темный фон */
-      --color-bg-light: #333333;
-      /* Более светлый фон для шапки */
-      --color-text: #e0e0e0;
-      /* Светлый текст */
+      --color-bg: #0f0f0f;
+      --color-header: #242424;
+      --color-text: #f0f0f0;
       --color-accent: #f39c12;
-      /* Охристо-желтый акцент */
-      --color-footer: #999;
-      --color-header: #444;
-      /* Темно-серая шапка */
-      --color-button: #e67e22;
-      /* Теплый оранжевый для кнопки */
+      --color-button: #d35400;
       --color-button-hover: #f39c12;
-      /* Желтый оттенок для кнопки */
-      --color-border: rgba(255, 255, 255, 0.3);
-      /* Полупрозрачная белая обводка */
-      --glow-color: #f1c40f;
-      /* Цвет свечения */
+      --color-border: rgba(255, 255, 255, 0.15);
+      --glow-color: #ffe600;
     }
     
     * {
@@ -47,9 +36,14 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+	
+	::selection {
+      background: var(--color-accent);
+      color: white;
+    }
+	
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       background-color: var(--color-bg);
       color: var(--color-text);
       display: flex;
@@ -62,7 +56,7 @@
       overflow-x: hidden;
       position: relative;
     }
-    
+
     header {
       background-color: var(--color-header);
       color: var(--color-text);
@@ -75,18 +69,22 @@
       animation: slideIn 1s ease-out, glow 1s ease-in-out infinite alternate;
       border: 2px solid var(--color-border);
     }
-    
+
     h1 {
       font-size: 36px;
       font-weight: 600;
-      margin: 0;
+      margin: 2;
       color: var(--color-accent);
       letter-spacing: 2px;
       animation: bounceIn 1s ease-out, shake 1s infinite;
       text-transform: uppercase;
       text-shadow: 0 0 10px var(--glow-color);
     }
-    
+	
+    p {
+      padding: 3px;
+    }
+	  
     .container {
       padding: 20px 20px;
       width: 100%;
@@ -96,7 +94,7 @@
       position: relative;
       animation: fadeIn 2s ease-out;
     }
-    
+	
     iframe {
       width: 100%;
       height: 400px;
@@ -130,6 +128,7 @@
     }
     
     .cta-button {
+	  font-family: 'Comfortaa', sans-serif;
       background-color: var(--color-button);
       color: #fff;
       font-size: 18px;
@@ -149,8 +148,51 @@
       transform: scale(1.1);
       box-shadow: 0 8px 20px rgba(255, 165, 0, 0.6);
     }
+	
+    /* Modal */
+    #donate-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+	
+    #donate-modal .modal-content {
+      background: var(--color-header);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      border: 2px solid var(--color-border);
+      animation: slideIn 0.5s ease-out;
+    }
+	
+    .crypto-tab {
+      font-family: 'Comfortaa', sans-serif;
+      background: transparent;
+      color: var(--color-accent);
+      border: 2px solid var(--color-border);
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      margin: 0 4px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+	
+    .crypto-tab:hover, .crypto-tab.active {
+      background-color: var(--color-button);
+      color: white;
+      border-color: var(--color-button-hover);
+    }
+	
     /* Анимации */
-    
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -256,8 +298,8 @@
         transform: translateY(-20px);
       }
     }
+	
     /* Стикеры анимации */
-    
     .sticker {
       position: fixed;
       /* Фиксируем стикеры на экране */
@@ -269,8 +311,8 @@
       opacity: 0.3;
       /* Полупрозрачность */
     }
+	
     /* Вспышка */
-    
     .explosion-flash {
       position: fixed;
       top: 0;
@@ -283,8 +325,8 @@
       z-index: 1000;
       pointer-events: none;
     }
+	
     /* Вспышка исчезает */
-    
     @keyframes flashFade {
       0% {
         opacity: 0.8;
@@ -293,8 +335,8 @@
         opacity: 0;
       }
     }
+	
     /* Тряска сайта */
-    
     .shake {
       animation: shakeExplosion 0.6s ease-in-out;
     }
@@ -319,8 +361,8 @@
         transform: translate(0, 0);
       }
     }
+	
     /* Взрывные эмодзи */
-    
     .explosion-emoji {
       position: fixed;
       font-size: 40px;
@@ -339,8 +381,8 @@
         opacity: 0;
       }
     }
+	
     /* Анимации стикеров */
-    
     @keyframes stickerAnim {
       0% {
         opacity: 0;
@@ -374,8 +416,9 @@
 
 <body>
   <header>
-    <h1>ALLAH OFFICIAL</h1>
-	<h3>ОТКРОЙ ДЛЯ СЕБЯ СЛУЧАЙНОЕ ИСЛАМСКОЕ ВИДЕО, КОТОРОЕ МОЖЕТ ИЗМЕНИТЬ ТВОЙ ДЕНЬ!</h4>
+    <h1>ALLAH OFFICIAL</p>
+
+	<h3>ОТКРОЙ ДЛЯ СЕБЯ СЛУЧАЙНОЕ ИСЛАМСКОЕ ВИДЕО, КОТОРОЕ МОЖЕТ ИЗМЕНИТЬ ТВОЙ ДЕНЬ!</h3>
   </header>
 
   <div class="container">
@@ -384,13 +427,69 @@
   </div>
 
   <div class="footer">
-    &copy; ic3nt 2025 | С миром, брат ✌️<span id="boom" style="cursor: pointer;">💥</span> | <a href="404" target="_blank">#FREEPALESTINE</a>
+    &copy; ic3nt 2025 | С миром, брат ✌️<span id="boom" style="cursor: pointer;">💥</span> | <a onclick="openDonateModal()" style="cursor: pointer; target="_blank" >ПОДДЕРЖАТЬ АВТОРА 💖</a>
+  </div>
+
+  <div id="donate-modal">
+    <div class="modal-content">
+      <button onclick="closeDonateModal()" style="position:absolute;top:10px;right:16px;color:white;background:none;border:none;font-size:22px;cursor:pointer;">&times;</button>
+      <h2 style="color:var(--color-accent)">ПОДДЕРЖИ МЕНЯ КРИПТОЙ!</h2>
+      <div style="margin: 20px 0;">
+        <button class="crypto-tab" data-crypto="btc">BTC</button>
+        <button class="crypto-tab" data-crypto="eth">ETH</button>
+        <button class="crypto-tab" data-crypto="ton">TON</button>
+      </div>
+      <div id="cryptoContent"></div>
+    </div>
   </div>
 
   <div id="stickers-container"></div>
-  <!-- Контейнер для стикеров -->
 
   <script>
+    const wallets = {
+      btc: {
+        name: "Bitcoin",
+        address: "bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      },
+      eth: {
+        name: "Ethereum",
+        address: "0x8De93aFEc6b2deA2b331E95D2647444f69722d76",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=0x8De93aFEc6b2deA2b331E95D2647444f69722d76&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      },
+      ton: {
+        name: "TON",
+        address: "UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      }
+    };
+    function openDonateModal() {
+      document.getElementById('donate-modal').style.display = 'flex';
+      setCryptoTab('btc');
+    }
+    function closeDonateModal() {
+      document.getElementById('donate-modal').style.display = 'none';
+    }
+    function setCryptoTab(key) {
+      document.querySelectorAll('.crypto-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.crypto === key);
+      });
+      const w = wallets[key];
+	  
+    document.getElementById('cryptoContent').innerHTML = `
+    <p><strong>${w.name} адрес:</strong></p>
+    <div style="margin: 10px 0;">
+      <input id="cryptoAddress" type="text" value="${w.address}" readonly 
+        style="font-family: 'Comfortaa', sans-serif; width: 100%; padding: 10px; font-size: 14px; border-radius: 6px; border: 1px solid var(--color-border); background-color: #1f1f1f; color: white; text-align: center; outline: none;" />
+    </div>
+    <div id="qrWrapper" class="qr-animate">
+      <img id="qrImage" src="${w.qr}" alt="QR ${w.name}">
+    </div>
+  `;
+    }
+    document.querySelectorAll('.crypto-tab').forEach(btn => {
+      btn.addEventListener('click', () => setCryptoTab(btn.dataset.crypto));
+    });
     const tg = window.Telegram.WebApp;
     tg.expand();
     // Список видео для рандомного выбора
