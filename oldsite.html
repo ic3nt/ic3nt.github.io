@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>ISLAM FOREVER</title>
+  <link rel="icon" type="icon_site" href="favicon.ico">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script defer data-domain="ic3nt.github.io" src="https://plausible.io/js/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGSCJPXE1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5FGSCJPXE1');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Основные стили */
+    
+    :root {
+      --color-bg: #0f0f0f;
+      --color-header: #242424;
+      --color-text: #f0f0f0;
+      --color-accent: #f39c12;
+      --color-button: #d35400;
+      --color-button-hover: #f39c12;
+      --color-border: rgba(255, 255, 255, 0.15);
+      --glow-color: #ffe600;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+	
+	::selection {
+      background: var(--color-accent);
+      color: white;
+    }
+	
+    body {
+      font-family: 'Comfortaa', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 0 20px;
+      transition: background-color 0.5s ease;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      background-color: var(--color-header);
+      color: var(--color-text);
+      padding: 15px 20px;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+      margin-top: 30px;
+      animation: slideIn 1s ease-out, glow 1s ease-in-out infinite alternate;
+      border: 2px solid var(--color-border);
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin: 2;
+      color: var(--color-accent);
+      letter-spacing: 2px;
+      animation: bounceIn 1s ease-out, shake 1s infinite;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+	
+    p {
+      padding: 3px;
+    }
+	  
+    .container {
+      padding: 20px 20px;
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      animation: fadeIn 2s ease-out;
+    }
+	
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+      border: 3px solid var(--color-border);
+      /* Белая полупрозрачная обводка */
+      animation: float 2s ease-in-out infinite;
+    }
+    
+    iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    
+    .footer {
+      margin-top: auto;
+      padding: 15px;
+      font-size: 14px;
+      text-align: center;
+      color: var(--color-footer);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    .footer a {
+      text-decoration: none;
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+    
+    .cta-button {
+	  font-family: 'Comfortaa', sans-serif;
+      background-color: var(--color-button);
+      color: #fff;
+      font-size: 18px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      animation: pulse 1s ease-out infinite;
+      box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+    
+    .cta-button:hover {
+      background-color: var(--color-button-hover);
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(255, 165, 0, 0.6);
+    }
+	
+    /* Modal */
+    #donate-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+	
+    #donate-modal .modal-content {
+      background: var(--color-header);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      border: 2px solid var(--color-border);
+      animation: slideIn 0.5s ease-out;
+    }
+	
+    .crypto-tab {
+      font-family: 'Comfortaa', sans-serif;
+      background: transparent;
+      color: var(--color-accent);
+      border: 2px solid var(--color-border);
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      margin: 0 4px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+	
+    .crypto-tab:hover, .crypto-tab.active {
+      background-color: var(--color-button);
+      color: white;
+      border-color: var(--color-button-hover);
+    }
+	
+    /* Анимации */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-10px);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+      75% {
+        transform: translateX(-10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes glowBackground {
+      0% {
+        background-color: #0b0b0b;
+      }
+      50% {
+        background-color: #ff99ff;
+      }
+      100% {
+        background-color: #0b0b0b;
+      }
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes glow {
+      0% {
+        color: var(--color-accent);
+      }
+      50% {
+        color: #fff;
+      }
+      100% {
+        color: var(--color-accent);
+      }
+    }
+    
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+	
+    /* Стикеры анимации */
+    .sticker {
+      position: fixed;
+      /* Фиксируем стикеры на экране */
+      font-size: 50px;
+      display: none;
+      animation: stickerAnim 1.5s ease-out forwards, stickerWave 2s infinite ease-in-out;
+      z-index: -1;
+      /* Размещаем стикеры на самом нижнем слое */
+      opacity: 0.3;
+      /* Полупрозрачность */
+    }
+	
+    /* Вспышка */
+    .explosion-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      opacity: 0.8;
+      animation: flashFade 0.3s ease-out forwards;
+      z-index: 1000;
+      pointer-events: none;
+    }
+	
+    /* Вспышка исчезает */
+    @keyframes flashFade {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+	
+    /* Тряска сайта */
+    .shake {
+      animation: shakeExplosion 0.6s ease-in-out;
+    }
+    
+    @keyframes shakeExplosion {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-10px, 5px);
+      }
+      40% {
+        transform: translate(10px, -5px);
+      }
+      60% {
+        transform: translate(-10px, 5px);
+      }
+      80% {
+        transform: translate(10px, -5px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+	
+    /* Взрывные эмодзи */
+    .explosion-emoji {
+      position: fixed;
+      font-size: 40px;
+      pointer-events: none;
+      animation: explodeEmoji 1s ease-out forwards;
+      z-index: 1001;
+    }
+    
+    @keyframes explodeEmoji {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2) translate(var(--x), var(--y));
+        opacity: 0;
+      }
+    }
+	
+    /* Анимации стикеров */
+    @keyframes stickerAnim {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes stickerWave {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(15deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(-15deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ALLAH OFFICIAL</p>
+
+	<h3>ОТКРОЙ ДЛЯ СЕБЯ СЛУЧАЙНОЕ ИСЛАМСКОЕ ВИДЕО, КОТОРОЕ МОЖЕТ ИЗМЕНИТЬ ТВОЙ ДЕНЬ!</h3>
+  </header>
+
+  <div class="container">
+    <iframe id="video" allowfullscreen></iframe>
+    <button class="cta-button" id="loadNewVideo">СМОТРЕТЬ ДАЛЕЕ!</button>
+  </div>
+
+  <div class="footer">
+    &copy; ic3nt 2025 | С миром, брат ✌️<span id="boom" style="cursor: pointer;">💥</span> | <a onclick="openDonateModal()" style="cursor: pointer; target="_blank" >ПОДДЕРЖАТЬ АВТОРА 💖</a>
+  </div>
+
+  <div id="donate-modal">
+    <div class="modal-content">
+      <button onclick="closeDonateModal()" style="position:absolute;top:10px;right:16px;color:white;background:none;border:none;font-size:22px;cursor:pointer;">&times;</button>
+      <h2 style="color:var(--color-accent)">ПОДДЕРЖИ МЕНЯ КРИПТОЙ!</h2>
+      <div style="margin: 20px 0;">
+        <button class="crypto-tab" data-crypto="btc">BTC</button>
+        <button class="crypto-tab" data-crypto="eth">ETH</button>
+        <button class="crypto-tab" data-crypto="ton">TON</button>
+      </div>
+      <div id="cryptoContent"></div>
+    </div>
+  </div>
+
+  <div id="stickers-container"></div>
+
+  <script>
+    const wallets = {
+      btc: {
+        name: "Bitcoin",
+        address: "bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      },
+      eth: {
+        name: "Ethereum",
+        address: "0x8De93aFEc6b2deA2b331E95D2647444f69722d76",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=0x8De93aFEc6b2deA2b331E95D2647444f69722d76&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      },
+      ton: {
+        name: "TON",
+        address: "UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq&size=200x200&color=255-255-255&bgcolor=36-36-36"
+      }
+    };
+    function openDonateModal() {
+      document.getElementById('donate-modal').style.display = 'flex';
+      setCryptoTab('btc');
+    }
+    function closeDonateModal() {
+      document.getElementById('donate-modal').style.display = 'none';
+    }
+    function setCryptoTab(key) {
+      document.querySelectorAll('.crypto-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.crypto === key);
+      });
+      const w = wallets[key];
+	  
+    document.getElementById('cryptoContent').innerHTML = `
+    <p><strong>${w.name} адрес:</strong></p>
+    <div style="margin: 10px 0;">
+      <input id="cryptoAddress" type="text" value="${w.address}" readonly 
+        style="font-family: 'Comfortaa', sans-serif; width: 100%; padding: 10px; font-size: 14px; border-radius: 6px; border: 1px solid var(--color-border); background-color: #1f1f1f; color: white; text-align: center; outline: none;" />
+    </div>
+    <div id="qrWrapper" class="qr-animate">
+      <img id="qrImage" src="${w.qr}" alt="QR ${w.name}">
+    </div>
+  `;
+    }
+    document.querySelectorAll('.crypto-tab').forEach(btn => {
+      btn.addEventListener('click', () => setCryptoTab(btn.dataset.crypto));
+    });
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+    // Список видео для рандомного выбора
+    const videos = [
+      "https://www.youtube.com/embed/bPLyRz0Dab8?si=35tvVPxc_4CfcWWV", // мотивация
+      "https://www.youtube.com/embed/iFpjyPbjUj8?si=sN5iNvw2W57NCtxP", // Коран
+      "https://www.youtube.com/embed/zOIpdk40FiQ?si=r5_roQnpMUH9Er9n", // история
+      "https://www.youtube.com/embed/n_RlVCEE7wU?si=jfHhvgy6GM6Q2SKT", // кофи
+      "https://www.youtube.com/embed/MZFcjKOXTOs?si=losSwMEW_SgrDl34", // про Пророка Мухаммада
+      "https://www.youtube.com/embed/TKcTzAL0J_E?si=dmqMwK7jE9kZezme", // про стандофф
+      "https://www.youtube.com/embed/ztWhNQkikZw?si=CTPdQdntUnC2eRbp", // Золотой век ислама
+      "https://www.youtube.com/embed/LeI9YT4UyS0?si=fQAyuPJSXIJLGjYU", // классовые истоки ислама
+      "https://www.youtube.com/embed/lJnQMNBjADw?si=xg1OsNATZOn3DhiR", // появление ислама
+	  "https://www.youtube.com/embed/INxN3Z9cFZo?si=tatqcJDSQHWKjj7c", // ЖИРОБАZZ PLAY NEW YEAR
+	  "https://www.youtube.com/embed/h2nJnXI05ZA?si=YuYkvbuE7Xt_cPDt", // злой сосiд
+	  "https://www.youtube.com/embed/tDs4lcJhAdc?si=ir-QCg2H1cXs1y6G", // 56 сура
+	  "https://www.youtube.com/embed/cWWKSBPC4VU?si=FSXvLwV5IvxjF8Zc", // 51 BRENTON
+	  "https://www.youtube.com/embed/RaYr5zEtd6E?si=ZgyopKyULXKwikUH", // брентон 2
+	  "https://www.youtube.com/embed/L-OcbwOlMbg?si=Zs3RaaFLD1lS7aip", // немец в ислам
+	  "https://www.youtube.com/embed/LWoMgoJLU0Q?si=4Gh3n1r3IALjN6Zv", // мутант мусульманин
+	  "https://www.youtube.com/embed/XYu3PTeOcpY?si=pnLcJ3wRFXCnstaU" // kaaba live FULL HD
+    ];
+    // Функция для изменения видео с анимацией
+    function changeVideo() {
+      const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+      const videoElement = document.getElementById("video");
+      const stickersContainer = document.getElementById("stickers-container");
+      // Очищаем старые стикеры
+      stickersContainer.innerHTML = '';
+      // Массив для хранения использованных позиций стикеров
+      const usedPositions = [];
+      // Создаем случайное количество стикеров (меньше стикеров)
+      const numStickers = 25 + Math.floor(Math.random() * 25); // от 25 до 50 стикеров
+      for (let i = 0; i < numStickers; i++) {
+        let top, left;
+        // Генерация случайной позиции, которая не пересекается с другими стикерами
+        do {
+          top = Math.random() * 100;
+          left = Math.random() * 100;
+        } while (usedPositions.some(pos => Math.abs(pos.top - top) < 10 && Math.abs(pos.left - left) < 10)); // проверка на близость
+        usedPositions.push({
+          top,
+          left
+        });
+        const sticker = document.createElement('div');
+        sticker.classList.add('sticker');
+        sticker.innerHTML = ['🕌', '🌙', '☪️', '💥', '✨', '🙏'][Math.floor(Math.random() * 5)];
+        sticker.style.top = `${top}%`; // случайное положение по вертикали
+        sticker.style.left = `${left}%`; // случайное положение по горизонтали
+        stickersContainer.appendChild(sticker);
+        setTimeout(() => {
+          sticker.style.display = 'block';
+        }, 100); // Задержка перед появлением
+      }
+      // Обновляем видео
+      videoElement.src = randomVideo;
+    }
+    // Эффект взрыва 💥
+    const boom = document.getElementById("boom");
+    boom.addEventListener("click", () => {
+      const body = document.body;
+      // Вибрация на 300 мс
+      if (navigator.vibrate) {
+        navigator.vibrate(300); // Можно также: [200, 100, 200] — шаблон вибрации
+      }
+      // Вспышка
+      const flash = document.createElement("div");
+      flash.classList.add("explosion-flash");
+      document.body.appendChild(flash);
+      // Тряска
+      body.classList.add("shake");
+      // Взрывные эмодзи
+      for (let i = 0; i < 15; i++) {
+        const emoji = document.createElement("div");
+        emoji.classList.add("explosion-emoji");
+        emoji.innerText = ['💥', '🔥', '🌪️', '💣', '⚡'][Math.floor(Math.random() * 5)];
+        // Центр экрана
+        emoji.style.left = "50%";
+        emoji.style.top = "50%";
+        // Случайное направление движения
+        const x = (Math.random() - 0.5) * 400 + "px";
+        const y = (Math.random() - 0.5) * 400 + "px";
+        emoji.style.setProperty("--x", x);
+        emoji.style.setProperty("--y", y);
+        document.body.appendChild(emoji);
+        // Удаляем через секунду
+        setTimeout(() => {
+          emoji.remove();
+        }, 1000);
+      }
+      // Удаляем тряску и вспышку
+      setTimeout(() => {
+        body.classList.remove("shake");
+        flash.remove();
+      }, 1000);
+    });
+    // Обработчик кнопки
+    document.getElementById("loadNewVideo").addEventListener("click", changeVideo);
+    // Инициализация первого видео
+    changeVideo();
+  </script>
+</body>
+
+</html>

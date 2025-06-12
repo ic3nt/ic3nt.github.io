@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISLAM FOREVER - ПЕРЕАДРЕСАЦИЯ</title>
+  <title>ISLAM FOREVER - НОВЫЙ ДОМЕН</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGSCJPXE1"></script>
   <script>
@@ -358,32 +358,22 @@
 
   <header>
     <h1>ISLAM FOREVER</h1>
-    <p class="subtitle">ВЫ БУДЕТЕ ПЕРЕНАПРАВЛЕНЫ НА НОВЫЙ САЙТ</p>
+    <p class="subtitle">СКОРО НА ЭТОМ ДОМЕНЕ</p>
   </header>
 
   <div class="container">
     <div class="redirect-card">
       <div class="redirect-icon">
-        <i class="fas fa-external-link-alt"></i>
+        <i class="fas fa-hourglass-half"></i>
       </div>
-      <h2 class="redirect-title">Обязательная переадресация</h2>
+      <h2 class="redirect-title">Скоро будет доступно</h2>
       <p class="redirect-message">
-        Этот сайт был перемещен на новый адрес.<br>
-        Пожалуйста, подождите, мы перенаправим вас автоматически.
-      </p>
-      
+        В ближайшее время на этом домене появится сайт ISLAM FOREVER.<br>
+        В настоящее время мы работаем над его переносом.
+      </p> 
       <div class="redirect-url">
         allahpidor.42web.io
       </div>
-      
-      <div class="redirect-timer">
-        Автоматическая переадресация через: <span id="countdown">5</span> сек.
-      </div>
-      
-      <div class="controls">
-        <button class="cta-button" id="redirect-now">
-          <i class="fas fa-external-link-alt"></i> ПЕРЕЙТИ СЕЙЧАС
-        </button>
       </div>
     </div>
   </div>
@@ -399,8 +389,7 @@
   <script>
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      createStickers();
-      startCountdown();
+      createStickers();  
       
       // Initialize theme
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -408,34 +397,9 @@
       updateThemeIcon(savedTheme);
       
       // Setup event listeners
-      document.getElementById('redirect-now').addEventListener('click', redirectNow);
+      document.getElementById('return-now')?.addEventListener('click', redirectBack);
       document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     });
-
-    // Countdown timer
-    function startCountdown() {
-      let seconds = 5; // Уменьшил время до 5 секунд
-      const countdownEl = document.getElementById('countdown');
-      const timer = setInterval(() => {
-        seconds--;
-        countdownEl.textContent = seconds;
-        
-        if (seconds <= 0) {
-          clearInterval(timer);
-          redirectNow();
-        }
-      }, 1000);
-    }
-
-    // Redirect functions
-    function redirectNow() {
-      window.location.href = "https://allahpidor.42web.io";
-      
-      // На всякий случай добавим fallback
-      setTimeout(() => {
-        window.location.href = "https://allahpidor.42web.io";
-      }, 1000);
-    }
 
     // Theme functions
     function toggleTheme() {

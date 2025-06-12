@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISLAM FOREVER</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGSCJPXE1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5FGSCJPXE1');
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    :root {
+      --color-bg: #0f0f0f;
+      --color-header: #1a1a1a;
+      --color-text: #f0f0f0;
+      --color-accent: #f39c12;
+      --color-accent-light: #f8b859;
+      --color-button: #d35400;
+      --color-button-hover: #f39c12;
+      --color-border: rgba(255, 255, 255, 0.15);
+      --glow-color: #ffe600;
+      --card-bg: rgba(30, 30, 30, 0.8);
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      --transition: all 0.3s ease;
+      --font-family: 'Comfortaa', sans-serif;
+    }
+
+    [data-theme="light"] {
+      --color-bg: #f8f8f8;
+      --color-header: #ffffff;
+      --color-text: #333333;
+      --color-accent: #e67e22;
+      --color-button: #d35400;
+      --color-button-hover: #e67e22;
+      --color-border: rgba(0, 0, 0, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --glow-color: #d35400;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-family);
+    }
+    
+    ::selection {
+      background: var(--color-accent);
+      color: white;
+    }
+    
+    body {
+      background: var(--color-bg);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(243, 156, 18, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(211, 84, 0, 0.05) 0%, transparent 20%);
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 0 15px 30px;
+      transition: var(--transition);
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--color-header), #222222);
+      color: var(--color-text);
+      padding: 20px 25px;
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin: 30px 0 20px;
+      animation: slideIn 1s ease-out;
+      border: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #f39c12, #d35400, #8e44ad, #3498db);
+      animation: gradientFlow 8s linear infinite;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 10px 0;
+      color: var(--color-accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 0 15px var(--glow-color);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5px 0;
+      color: var(--color-text);
+      opacity: 0.9;
+    }
+    
+    .container {
+      padding: 20px;
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-border);
+      margin-bottom: 25px;
+      transition: var(--transition);
+      background: #000;
+    }
+
+    .video-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(243, 156, 18, 0.1), rgba(142, 68, 173, 0.1));
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .video-title {
+      background: var(--card-bg);
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .video-title span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .video-actions {
+      display: flex;
+      gap: 12px;
+      margin-left: 15px;
+    }
+
+    .video-action-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      transition: var(--transition);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .video-action-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .video-action-btn:hover {
+      background: rgba(243, 156, 18, 0.2);
+      color: var(--color-accent);
+    }
+
+    .favorited {
+      color: #e74c3c;
+      animation: pulseHeart 0.6s ease;
+    }
+    
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .cta-button {
+      background: linear-gradient(135deg, var(--color-button), var(--color-accent));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
+    }
+
+    .cta-button:active {
+      transform: translateY(1px);
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .stat-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 16px;
+      min-width: 180px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 10px 0;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 1rem;
+      text-align: center;
+      color: var(--color-text);
+      opacity: 0.7;
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .footer a {
+      text-decoration: none;
+      color: var(--color-accent);
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 30px;
+      background: rgba(243, 156, 18, 0.1);
+      position: relative;
+    }
+
+    .footer a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .footer a:hover {
+      background: rgba(243, 156, 18, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--color-border);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      font-size: 1.3rem;
+      color: var(--color-accent);
+      transition: var(--transition);
+    }
+    
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+    
+    /* Modal */
+    #donate-modal, #suggest-modal, #captcha-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      animation: fadeIn 0.4s ease-in-out;
+      backdrop-filter: blur(5px);
+    }
+    
+    #donate-modal .modal-content, #suggest-modal .modal-content, #captcha-modal .modal-content {
+      background: var(--color-header);
+      padding: 25px;
+      border-radius: 18px;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transform: scale(0.9);
+      opacity: 0;
+      animation: modalAppear 0.5s forwards;
+    }
+
+    @keyframes modalAppear {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .modal-header {
+      margin-bottom: 15px;
+    }
+    
+    .modal-header h2 {
+      color: var(--color-accent);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    
+    .modal-header p {
+      color: var(--color-text);
+      opacity: 0.8;
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    
+    .crypto-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .crypto-tab {
+      background: transparent;
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+      border-radius: 50px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .crypto-tab::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .crypto-tab:hover, .crypto-tab.active {
+      background: var(--color-button);
+      color: white;
+      border-color: var(--color-button);
+    }
+    
+    .crypto-content {
+      margin-top: 15px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .qr-container {
+      padding: 12px;
+      background: var(--color-bg);
+      border-radius: 10px;
+      display: inline-block;
+      margin: 8px auto;
+      box-shadow: 0 0 0 3px var(--color-accent);
+      position: relative;
+      min-height: 180px;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .qr-loader {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(243, 156, 18, 0.3);
+      border-top: 4px solid var(--color-accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+    
+    .qr-image {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .qr-image.loaded {
+      opacity: 1;
+    }
+    
+    .crypto-address {
+      background: var(--card-bg);
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    
+    .crypto-address:hover {
+      border-color: var(--color-accent);
+    }
+    
+    .crypto-address input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--color-text);
+      font-size: 0.85rem;
+      padding: 5px;
+      outline: none;
+      font-family: monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .copy-btn {
+      background: var(--color-button);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      position: relative;
+    }
+
+    .copy-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .copy-btn:hover {
+      background: var(--color-accent);
+    }
+    
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-header);
+      color: var(--color-text);
+      padding: 15px 25px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-border);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .toast.show {
+      opacity: 1;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: var(--color-text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    .close-modal:hover {
+      background: rgba(243, 156, 18, 0.1);
+      color: var(--color-accent);
+    }
+    
+    /* Stickers */
+    #stickers-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .sticker {
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.15;
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+      animation: stickerFloat 15s linear infinite;
+      z-index: -1;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px var(--glow-color); }
+      50% { text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--color-accent); }
+      100% { text-shadow: 0 0 10px var(--glow-color); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    
+    @keyframes stickerFloat {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(10px, 15px); }
+      50% { transform: translate(20px, -10px); }
+      75% { transform: translate(-15px, 20px); }
+    }
+    
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes pulseHeart {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .subtitle { font-size: 1rem; }
+      iframe { height: 300px; }
+      .stat-card { min-width: 140px; padding: 15px; }
+      .stat-value { font-size: 1.8rem; }
+      .video-title { font-size: 0.95rem; padding: 10px; }
+      .cta-button { padding: 12px 25px; font-size: 1rem; }
+    }
+    
+    @media (max-width: 480px) {
+      iframe { height: 250px; }
+      .stats { gap: 15px; }
+      .stat-card { min-width: 120px; padding: 12px; }
+      .stat-value { font-size: 1.5rem; }
+      .controls { flex-direction: column; }
+      .video-actions { margin-left: 10px; }
+      .video-action-btn { font-size: 1.1rem; }
+      .footer-links { gap: 15px; }
+      .footer a { padding: 5px 10px; font-size: 0.9rem; }
+      #donate-modal .modal-content, #suggest-modal .modal-content { max-width: 320px; }
+    }
+    
+    /* Loader */
+    .loader {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 15, 15, 0.8);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      color: var(--color-accent);
+      font-size: 1.2rem;
+      border-radius: 18px;
+    }
+    
+    .loader.spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(243, 156, 18, 0.3);
+      border-top: 5px solid var(--color-accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Special bomb button */
+    .bomb-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--color-button);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      border: 2px solid var(--color-accent);
+      animation: pulse 1.5s infinite;
+    }
+    
+    .bomb-button:hover {
+      transform: scale(1.1);
+      background: var(--color-button-hover);
+      box-shadow: 0 0 20px rgba(243, 156, 18, 0.6);
+      animation: none;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Bomb explosion effect */
+    .bomb-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .bomb-effect.visible {
+      opacity: 1;
+    }
+    
+    .bomb-particle {
+      position: absolute;
+      font-size: 2rem;
+      animation: bombExplode 1.5s ease-out forwards;
+      z-index: 1000;
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.8);
+    }
+    
+    @keyframes bombExplode {
+      0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(1);
+        opacity: 0;
+      }
+    }
+    
+    /* Video suggestion form */
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      background: var(--card-bg);
+      color: var(--color-text);
+      font-family: var(--font-family);
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: var(--color-button);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .submit-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .submit-btn:hover {
+      background: var(--color-accent);
+      transform: translateY(-3px);
+    }
+    
+    /* Капча стили */
+    .captcha-container {
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .captcha-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .captcha-icon {
+      font-size: 1.8rem;
+      color: var(--color-accent);
+    }
+    
+    .captcha-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    
+    .captcha-description {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    
+    .captcha-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .captcha-btn {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+
+    .captcha-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .captcha-confirm {
+      background: var(--color-button);
+      color: white;
+    }
+    
+    .captcha-confirm:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .captcha-confirm:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background: #999 !important;
+    }
+    
+    .captcha-cancel {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    
+    .captcha-cancel:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Cloudflare Turnstile widget */
+    .cf-turnstile {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Эффект бомбы -->
+  <div class="bomb-effect" id="bomb-effect"></div>
+  
+  <!-- Специальная кнопка бомбы -->
+  <div class="bomb-button" id="bomb-button">
+    <i class="fas fa-bomb"></i>
+  </div>
+
+  <div class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <header>
+    <h1>ISLAM FOREVER</h1>
+    <p class="subtitle">ОТКРОЙ ДЛЯ СЕБЯ СЛУЧАЙНОЕ ИСЛАМСКОЕ ВИДЕО, КОТОРОЕ МОЖЕТ ИЗМЕНИТЬ ТВОЙ ДЕНЬ!</p>
+  </header>
+
+  <div class="container">
+    <div class="video-container">
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <div>Загрузка вдохновляющего видео...</div>
+      </div>
+      <iframe id="video" allowfullscreen></iframe>
+      <div class="video-title">
+        <span id="video-title">Загрузка названия...</span>
+        <div class="video-actions">
+          <button class="video-action-btn" id="favorite-btn" title="Добавить в избранное">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button class="cta-button" id="loadNewVideo">
+        <i class="fas fa-random"></i> СЛУЧАЙНОЕ ВИДЕО
+      </button>
+      <button class="cta-button" id="favorites-btn">
+        <i class="fas fa-star"></i> ИЗБРАННОЕ
+      </button>
+      <button class="cta-button" id="suggest-video-btn">
+        <i class="fas fa-plus-circle"></i> ПРЕДЛОЖИТЬ ВИДЕО
+      </button>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="total-views">0</div>
+        <div class="stat-label">ПРОСМОТРОВ ВИДЕО</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="favorites-count">0</div>
+        <div class="stat-label">В ИЗБРАННОМ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="videos-count">0</div>
+        <div class="stat-label">ДОСТУПНЫХ ВИДЕО</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#" onclick="openDonateModal()"><i class="fas fa-hand-holding-heart"></i> Поддержать проект</a>
+      <a href="#" id="reset-stats"><i class="fas fa-sync-alt"></i> Сбросить статистику</a>
+    </div>
+    <div>
+      &copy; ic3nt 2025 | С миром, брат ✌️ | Сделано с ❤️ для мусульман
+    </div>
+  </div>
+
+  <!-- Donate Modal -->
+  <div id="donate-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeDonateModal()">&times;</button>
+      
+      <div class="modal-header">
+        <h2>ПОДДЕРЖИ ПРОЕКТ</h2>
+        <p>Ваша поддержка поможет развитию проекта и созданию новых возможностей для мусульманской общины</p>
+      </div>
+      
+      <div class="crypto-tabs">
+        <button class="crypto-tab active" data-crypto="btc">
+          <i class="fab fa-bitcoin"></i> BTC
+        </button>
+        <button class="crypto-tab" data-crypto="eth">
+          <i class="fab fa-ethereum"></i> ETH
+        </button>
+        <button class="crypto-tab" data-crypto="ton">
+          <i class="fas fa-wallet"></i> TON
+        </button>
+      </div>
+      
+      <div class="crypto-content" id="cryptoContent">
+        <div class="qr-container">
+          <div class="qr-loader" id="qr-loader"></div>
+          <img class="qr-image" id="qr-image" src="" alt="QR Code">
+        </div>
+        <div class="crypto-address">
+          <input type="text" id="crypto-address" value="" readonly>
+          <button class="copy-btn" onclick="copyCryptoAddress()">
+            <i class="fas fa-copy"></i> Копировать
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Suggestion Modal -->
+  <div id="suggest-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeSuggestModal()">&times;</button>
+      
+      <div class="modal-header">
+        <h2>ПРЕДЛОЖИТЬ ВИДЕО</h2>
+        <p>Поделитесь ссылкой на YouTube видео, которое, по вашему мнению, должно быть на нашем сайте</p>
+      </div>
+      
+      <form id="suggestion-form">
+        <div class="form-group">
+          <label for="video-url">Ссылка на YouTube видео:</label>
+          <input type="url" id="video-url" required placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+        
+        <div class="form-group">
+          <label for="video-title">Название видео (необязательно):</label>
+          <input type="text" id="video-title-suggest" placeholder="Мотивирующее исламское видео">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Ваше сообщение (необязательно):</label>
+          <textarea id="message" placeholder="Почему вы считаете это видео важным?"></textarea>
+        </div>
+        
+        <button type="button" class="submit-btn" id="verify-captcha-btn">
+          <i class="fas fa-shield-alt"></i> Подтвердить
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Captcha Modal -->
+  <div id="captcha-modal">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeCaptchaModal()">&times;</button>
+        
+        <div class="modal-header">
+            <h2>ПОДТВЕРЖДЕНИЕ</h2>
+            <p>Пожалуйста, подтвердите, что вы не робот</p>
+        </div>
+        
+        <div class="captcha-container">
+            <div class="captcha-header">
+                <i class="fas fa-shield-alt captcha-icon"></i>
+                <div class="captcha-title">Cloudflare Turnstile</div>
+            </div>
+            <p class="captcha-description">Пройдите проверку безопасности, чтобы продолжить</p>
+            
+            <!-- Ваш настоящий sitekey из Cloudflare -->
+            <div class="cf-turnstile" 
+                 data-sitekey="0x4AAAAAABfgHmiF7KWS4gbn" 
+                 data-callback="onCaptchaSuccess"
+                 data-error-callback="onCaptchaError"></div>
+            
+            <div class="captcha-buttons">
+                <button class="captcha-btn captcha-confirm" id="confirm-captcha" disabled>
+                    <i class="fas fa-check"></i> Подтвердить
+                </button>
+                <button class="captcha-btn captcha-cancel" onclick="closeCaptchaModal()">
+                    <i class="fas fa-times"></i> Отмена
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="stickers-container"></div>
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // Data and state management
+    const state = {
+      totalViews: parseInt(localStorage.getItem('totalViews')) || 0,
+      favorites: JSON.parse(localStorage.getItem('favorites')) || [],
+      currentVideo: null,
+      captchaVerified: false,
+      captchaToken: null
+    };
+
+    const videos = [
+      { 
+        id: "bPLyRz0Dab8", 
+        title: "МОЩНАЯ МОТИВАЦИЯ ДЛЯ МУСУЛЬМАН", 
+        tags: ["мотивация", "ислам"] 
+      },
+      { 
+        id: "iFpjyPbjUj8", 
+        title: "САМЫЙ КРАСИВЫЙ КОРАН, КОТОРЫЙ ВЫ СЛЫШАЛИ", 
+        tags: ["коран", "чтение"] 
+      },
+      { 
+        id: "zOIpdk40FiQ", 
+        title: "ИСТОРИЯ ИСЛАМА ЗА 10 МИНУТ", 
+        tags: ["история", "ислам"] 
+      },
+      { 
+        id: "n_RlVCEE7wU", 
+        title: "КАК ПРАВИЛЬНО ЧИТАТЬ НАМАЗ? УРОК ДЛЯ НАЧИНАЮЩИХ", 
+        tags: ["намаз", "обучение"] 
+      },
+      { 
+        id: "MZFcjKOXTOs", 
+        title: "ЖИЗНЬ ПРОРОКА МУХАММАДА ﷺ", 
+        tags: ["пророк", "история"] 
+      },
+      { 
+        id: "TKcTzAL0J_E", 
+        title: "ИСЛАМСКИЕ ПРИНЦИПЫ В СОВРЕМЕННОМ МИРЕ", 
+        tags: ["принципы", "современность"] 
+      },
+      { 
+        id: "ztWhNQkikZw", 
+        title: "ЗОЛОТОЙ ВЕК ИСЛАМА: ДОСТИЖЕНИЯ И ОТКРЫТИЯ", 
+        tags: ["история", "достижения"] 
+      },
+      { 
+        id: "LeI9YT4UyS0", 
+        title: "ИСТОКИ ИСЛАМА: КАК ВСЁ НАЧИНАЛОСЬ", 
+        tags: ["история", "ислам"] 
+      },
+      { 
+        id: "lJnQMNBjADw", 
+        title: "ЧУДЕСА КОРАНА С НАУЧНОЙ ТОЧКИ ЗРЕНИЯ", 
+        tags: ["коран", "наука"] 
+      },
+      { 
+        id: "INxN3Z9cFZo", 
+        title: "РАДОСТИ МУСУЛЬМАНСКОЙ СЕМЬИ", 
+        tags: ["семья", "радость"] 
+      },
+      { 
+        id: "h2nJnXI05ZA", 
+        title: "ИСЛАМ И СОСЕДСКИЕ ОТНОШЕНИЯ", 
+        tags: ["отношения", "соседи"] 
+      },
+      { 
+        id: "tDs4lcJhAdc", 
+        title: "СУРА АЛЬ-ВАКИА: СЛУШАЙТЕ И РАЗМЫШЛЯЙТЕ", 
+        tags: ["коран", "сура"] 
+      },
+      { 
+        id: "cWWKSBPC4VU", 
+        title: "ИСТОРИЯ ОБРАЩЕНИЯ В ИСЛАМ", 
+        tags: ["обращение", "история"] 
+      },
+      { 
+        id: "L-OcbwOlMbg", 
+        title: "ИСТОРИЯ ОБРАЩЕНИЯ: НЕМЕЦ ПРИНЯЛ ИСЛАМ", 
+        tags: ["обращение", "история"] 
+      },
+      { 
+        id: "LWoMgoJLU0Q", 
+        title: "МУСУЛЬМАНЕ В СОВРЕМЕННОМ ОБЩЕСТВЕ", 
+        tags: ["общество", "современность"] 
+      },
+      { 
+        id: "XYu3PTeOcpY", 
+        title: "КААБА: ПРЯМАЯ ТРАНСЛЯЦИЯ ИЗ МЕККИ", 
+        tags: ["кааба", "мекка"] 
+      }
+    ];
+
+    // DOM Elements
+    const videoEl = document.getElementById('video');
+    const videoTitleEl = document.getElementById('video-title');
+    const loadNewVideoBtn = document.getElementById('loadNewVideo');
+    const favoriteBtn = document.getElementById('favorite-btn');
+    const favoritesBtn = document.getElementById('favorites-btn');
+    const suggestVideoBtn = document.getElementById('suggest-video-btn');
+    const totalViewsEl = document.getElementById('total-views');
+    const favoritesCountEl = document.getElementById('favorites-count');
+    const videosCountEl = document.getElementById('videos-count');
+    const loaderEl = document.getElementById('loader');
+    const resetStatsBtn = document.getElementById('reset-stats');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const toastEl = document.getElementById('toast');
+    const bombButton = document.getElementById('bomb-button');
+    const bombEffect = document.getElementById('bomb-effect');
+    const stickersContainer = document.getElementById('stickers-container');
+    const qrLoader = document.getElementById('qr-loader');
+    const qrImage = document.getElementById('qr-image');
+    const cryptoAddress = document.getElementById('crypto-address');
+    const verifyCaptchaBtn = document.getElementById('verify-captcha-btn');
+    const confirmCaptchaBtn = document.getElementById('confirm-captcha');
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      updateStats();
+      loadRandomVideo();
+      setupEventListeners();
+      createStickers();
+      
+      // Initialize theme
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.body.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+      
+      // Setup crypto data
+      setupCryptoData();
+    });
+
+    // Event Listeners
+    function setupEventListeners() {
+      loadNewVideoBtn.addEventListener('click', loadRandomVideo);
+      favoriteBtn.addEventListener('click', toggleFavorite);
+      favoritesBtn.addEventListener('click', showFavorites);
+      bombButton.addEventListener('click', triggerBombAnimation);
+      resetStatsBtn.addEventListener('click', resetStats);
+      themeToggleBtn.addEventListener('click', toggleTheme);
+      suggestVideoBtn.addEventListener('click', openSuggestModal);
+      verifyCaptchaBtn.addEventListener('click', openCaptchaModal);
+      confirmCaptchaBtn.addEventListener('click', confirmCaptcha);
+      
+      // Setup crypto tabs
+      document.querySelectorAll('.crypto-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.crypto-tab').forEach(tab => {
+            tab.classList.remove('active');
+          });
+          btn.classList.add('active');
+          
+          const cryptoType = btn.dataset.crypto;
+          updateCryptoContent(cryptoType);
+        });
+      });
+      
+      // Setup suggestion form
+      document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitSuggestion();
+      });
+    }
+
+    // Video functions
+    function loadRandomVideo() {
+      showLoader();
+      
+      // Get random video
+      const randomIndex = Math.floor(Math.random() * videos.length);
+      const video = videos[randomIndex];
+      state.currentVideo = video;
+      
+      // Update video source
+      videoEl.src = `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`;
+      videoTitleEl.textContent = video.title;
+      
+      // Update favorite button state
+      updateFavoriteButton();
+      
+      // Update stats
+      state.totalViews++;
+      localStorage.setItem('totalViews', state.totalViews);
+      updateStats();
+      
+      // Hide loader when video is loaded
+      videoEl.onload = () => {
+        hideLoader();
+      };
+    }
+
+    function showLoader() {
+      loaderEl.style.display = 'flex';
+    }
+
+    function hideLoader() {
+      loaderEl.style.display = 'none';
+    }
+
+    function toggleFavorite() {
+      if (!state.currentVideo) return;
+      
+      const videoId = state.currentVideo.id;
+      const index = state.favorites.findIndex(v => v.id === videoId);
+      
+      if (index === -1) {
+        // Add to favorites
+        state.favorites.push(state.currentVideo);
+        showToast('Видео добавлено в избранное!');
+      } else {
+        // Remove from favorites
+        state.favorites.splice(index, 1);
+        showToast('Видео удалено из избранного');
+      }
+      
+      localStorage.setItem('favorites', JSON.stringify(state.favorites));
+      updateFavoriteButton();
+      updateStats();
+    }
+
+    function updateFavoriteButton() {
+      if (!state.currentVideo) return;
+      
+      const isFavorite = state.favorites.some(v => v.id === state.currentVideo.id);
+      const icon = favoriteBtn.querySelector('i');
+      
+      if (isFavorite) {
+        icon.classList.remove('far', 'fa-heart');
+        icon.classList.add('fas', 'fa-heart', 'favorited');
+        favoriteBtn.title = 'Удалить из избранного';
+      } else {
+        icon.classList.remove('fas', 'fa-heart', 'favorited');
+        icon.classList.add('far', 'fa-heart');
+        favoriteBtn.title = 'Добавить в избранное';
+      }
+    }
+
+    function showFavorites() {
+      if (state.favorites.length === 0) {
+        showToast('Ваше избранное пусто! Добавьте видео в избранное.');
+        return;
+      }
+      
+      // Get random favorite video
+      const randomIndex = Math.floor(Math.random() * state.favorites.length);
+      const video = state.favorites[randomIndex];
+      state.currentVideo = video;
+      
+      showLoader();
+      
+      // Update video source
+      videoEl.src = `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`;
+      videoTitleEl.textContent = video.title;
+      
+      // Update stats
+      state.totalViews++;
+      localStorage.setItem('totalViews', state.totalViews);
+      updateStats();
+      
+      // Update favorite button state
+      updateFavoriteButton();
+      
+      // Hide loader when video is loaded
+      videoEl.onload = () => {
+        hideLoader();
+      };
+      
+      showToast('Показываю случайное видео из избранного');
+    }
+
+    // Stats functions
+    function updateStats() {
+      totalViewsEl.textContent = state.totalViews.toLocaleString();
+      favoritesCountEl.textContent = state.favorites.length;
+      videosCountEl.textContent = videos.length;
+    }
+
+    function resetStats() {
+      if (confirm('Вы уверены, что хотите сбросить статистику?')) {
+        state.totalViews = 0;
+        state.favorites = [];
+        localStorage.setItem('totalViews', '0');
+        localStorage.setItem('favorites', JSON.stringify([]));
+        updateStats();
+        updateFavoriteButton();
+        showToast('Статистика сброшена!');
+      }
+    }
+
+    // Theme functions
+    function toggleTheme() {
+      const currentTheme = document.body.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = themeToggleBtn.querySelector('i');
+      icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    // Bomb animation
+    function triggerBombAnimation() {
+      bombEffect.innerHTML = '';
+      bombEffect.classList.add('visible');
+      
+      const emojis = ['💣', '💥', '🔥', '✨', '☪️', '🕌', '🌟', '✨', '💥'];
+      
+      // Create bomb particles
+      for (let i = 0; i < 80; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'bomb-particle';
+        particle.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        // Random position from center
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 100 + Math.random() * 800;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        particle.style.fontSize = `${20 + Math.random() * 40}px`;
+        particle.style.color = i % 2 === 0 ? '#ff4d4d' : '#f39c12';
+        
+        bombEffect.appendChild(particle);
+      }
+      
+      // Hide explosion after animation
+      setTimeout(() => {
+        bombEffect.classList.remove('visible');
+        bombEffect.innerHTML = '';
+      }, 1500);
+      
+      // Vibrate if supported
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);
+      }
+      
+      // Show toast notification
+      showToast('БУМ! 💣');
+    }
+
+    // Create background stickers
+    function createStickers() {
+      const emojis = ['🕌', '☪️', '📿', '🌙', '🤲', '📖', '🕋', '🧕', '🤲'];
+      const count = 15;
+      
+      for (let i = 0; i < count; i++) {
+        const sticker = document.createElement('div');
+        sticker.className = 'sticker';
+        sticker.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        sticker.style.left = `${Math.random() * 100}%`;
+        sticker.style.top = `${Math.random() * 100}%`;
+        sticker.style.animationDelay = `${Math.random() * 5}s`;
+        sticker.style.fontSize = `${20 + Math.random() * 30}px`;
+        stickersContainer.appendChild(sticker);
+      }
+    }
+
+    // Crypto functions
+    const cryptoData = {
+      btc: {
+        name: "Bitcoin",
+        address: "bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=bc1q8htectvgh2ed8jqmlx6d487l62xxphvn3rmfun&size=180x180&color=243-156-18&bgcolor=30-30-30"
+      },
+      eth: {
+        name: "Ethereum",
+        address: "0x8De93aFEc6b2deA2b331E95D2647444f69722d76",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=0x8De93aFEc6b2deA2b331E95D2647444f69722d76&size=180x180&color=243-156-18&bgcolor=30-30-30"
+      },
+      ton: {
+        name: "TON",
+        address: "UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq",
+        qr: "https://api.qrserver.com/v1/create-qr-code/?data=UQCaPKedzGlrGsg0lWKmW44MZCr9J8LfB6WiQQ6GArFx21Fq&size=180x180&color=243-156-18&bgcolor=30-30-30"
+      }
+    };
+
+    function setupCryptoData() {
+      // Preload QR images
+      Object.values(cryptoData).forEach(wallet => {
+        const img = new Image();
+        img.src = wallet.qr;
+      });
+    }
+
+    function updateCryptoContent(type) {
+      const wallet = cryptoData[type];
+      if (!wallet) return;
+      
+      // Show loader
+      qrLoader.style.display = 'block';
+      qrImage.classList.remove('loaded');
+      
+      // Update address
+      cryptoAddress.value = wallet.address;
+      
+      // Set QR image
+      qrImage.src = wallet.qr;
+      qrImage.alt = `${wallet.name} QR Code`;
+      
+      // When image is loaded
+      qrImage.onload = () => {
+        setTimeout(() => {
+          qrLoader.style.display = 'none';
+          qrImage.classList.add('loaded');
+        }, 500);
+      };
+    }
+
+    function copyCryptoAddress() {
+      navigator.clipboard.writeText(cryptoAddress.value)
+        .then(() => {
+          showToast('Адрес скопирован в буфер обмена!');
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+          showToast('Ошибка копирования');
+        });
+    }
+
+    // Modal functions
+    function openDonateModal() {
+      document.getElementById('donate-modal').style.display = 'flex';
+      updateCryptoContent('btc');
+    }
+
+    function closeDonateModal() {
+      document.getElementById('donate-modal').style.display = 'none';
+    }
+    
+    function openSuggestModal() {
+      document.getElementById('suggest-modal').style.display = 'flex';
+      state.captchaVerified = false;
+    }
+    
+    function closeSuggestModal() {
+      document.getElementById('suggest-modal').style.display = 'none';
+    }
+    
+    function openCaptchaModal() {
+      const videoUrl = document.getElementById('video-url').value;
+      const videoTitle = document.getElementById('video-title-suggest').value;
+      
+      // Simple validation
+      if (!videoUrl.includes('youtube.com') && !videoUrl.includes('youtu.be')) {
+        showToast('Пожалуйста, введите ссылку на YouTube видео');
+        return;
+      }
+      
+      document.getElementById('captcha-modal').style.display = 'flex';
+      state.captchaToken = null;
+      confirmCaptchaBtn.disabled = true;
+    }
+    
+    function closeCaptchaModal() {
+      document.getElementById('captcha-modal').style.display = 'none';
+    }
+    
+    // Callback for Cloudflare Turnstile
+    function onCaptchaSuccess(token) {
+      console.log('Turnstile verified:', token);
+      state.captchaToken = token;
+      state.captchaVerified = true;
+      confirmCaptchaBtn.disabled = false;
+    }
+
+    function onCaptchaError() {
+      console.error('Turnstile error');
+      state.captchaToken = null;
+      state.captchaVerified = false;
+      confirmCaptchaBtn.disabled = true;
+    }
+
+    function confirmCaptcha() {
+      if (!state.captchaToken) {
+        showToast('Пожалуйста, пройдите проверку');
+        return;
+      }
+      
+      showToast('Проверка пройдена успешно!');
+      closeCaptchaModal();
+      state.captchaVerified = true;
+      
+      // Теперь можно отправлять форму
+      submitSuggestion();
+    }
+
+    async function submitSuggestion() {
+      if (!state.captchaVerified) {
+        showToast('Пожалуйста, сначала пройдите проверку');
+        return;
+      }
+      
+      const videoUrl = document.getElementById('video-url').value;
+      const videoTitle = document.getElementById('video-title-suggest').value;
+      const message = document.getElementById('message').value;
+      
+      // Extract video ID from URL
+      let videoId = '';
+      try {
+        const url = new URL(videoUrl);
+        if (url.hostname.includes('youtube.com')) {
+          videoId = url.searchParams.get('v');
+        } else if (url.hostname.includes('youtu.be')) {
+          videoId = url.pathname.slice(1);
+        }
+      } catch (e) {
+        console.error('Error parsing URL:', e);
+      }
+      
+      if (!videoId) {
+        showToast('Не удалось извлечь ID видео из ссылки');
+        return;
+      }
+      
+      try {
+        // Отправка данных в Telegram бот
+        const botToken = '7991005239:AAFWzZe83Ukc-C2_3CcCgzmHRg1iJ4yYJMM';
+        const chatId = '1249847592';
+        const text = `📥 <b>Новое предложение видео</b>\n\n` +
+                    `🎬 <b>Название:</b> ${videoTitle || 'Не указано'}\n` +
+                    `🆔 <b>ID видео:</b> ${videoId}\n` +
+                    `🔗 <b>Ссылка:</b> ${videoUrl}\n` +
+                    `✉️ <b>Комментарий:</b> ${message || 'Не указано'}\n\n` +
+                    `⏱ ${new Date().toLocaleString()}`;
+
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'HTML'
+          })
+        });
+        
+        if (response.ok) {
+          showToast('✅ Предложение отправлено создателю!');
+          closeSuggestModal();
+          document.getElementById('suggestion-form').reset();
+          state.captchaVerified = false;
+          state.captchaToken = null;
+        } else {
+          showToast('⚠️ Ошибка при отправке. Попробуйте позже.');
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+        showToast('🚫 Ошибка соединения');
+      }
+    }
+
+    // Toast notification
+    function showToast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add('show');
+      
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
